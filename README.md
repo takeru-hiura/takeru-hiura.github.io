@@ -2,11 +2,14 @@
 
 A lightweight, dependency-free portfolio designed for GitHub Pages.
 
-## Files
-- `index.html` — content and structure
-- `style.css` — responsive design and animations
-- `script.js` — mobile navigation and scroll-reveal effects
-- `assets/favicon.svg` — site icon
+## Pages and files
+- `index.html` — short home page and navigation to the main sections
+- `about.html` — personal interests and photos
+- `experience.html` — work history and skills
+- `projects.html` — capstone, embedded, research, and hackathon projects
+- `education.html` — Lehigh education and awards
+- `style.css` — shared responsive design
+- `script.js` — mobile navigation
 
 ## Publish free with GitHub Pages
 1. Create a public GitHub repository named `takeru-hiura.github.io`.
@@ -19,7 +22,6 @@ A lightweight, dependency-free portfolio designed for GitHub Pages.
 
 ## Customize later
 - Add a resume file and a Resume button.
-- Add real project photos/screenshots in `assets/`.
 - Update experience bullets as roles change.
 - Add a custom domain if desired; GitHub Pages hosting can remain free.
 
@@ -28,4 +30,4 @@ A lightweight, dependency-free portfolio designed for GitHub Pages.
 - `assets/lehigh-logo.svg` — [Lehigh University style guide](https://wms-styleguide.lehigh.edu/components/detail/images--lehigh_logo).
 - `assets/hyphenova-logo.png` — [Hyphenova website](https://hyphenova.com/).
 - The GP3 Lab label on the site is a custom typographic mark; the [lab website](https://jtabell.com/) does not publish a standalone logo.
-- The volleyball, hiking, and hackathon photographs were supplied by Takeru.
+- The volleyball, hiking, hackathon, and FPGA capstone photographs were supplied by Takeru.

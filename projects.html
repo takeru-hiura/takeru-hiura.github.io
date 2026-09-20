@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="FPGA capstone, embedded systems, climate data research, and hackathon projects by Takeru Hiura." />
+  <meta name="theme-color" content="#f8f8f5" />
+  <title>Projects | Takeru Hiura</title>
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav container" aria-label="Primary navigation">
+      <a class="brand" href="index.html" aria-label="Takeru Hiura home">Takeru Hiura<span>.</span></a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-controls="primary-links" aria-expanded="false"><span></span><span></span><span></span></button>
+      <div class="nav-links" id="primary-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="experience.html">Experience</a>
+        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="education.html">Education & Awards</a>
+      </div>
+    </nav>
+  </header>
+  <main class="page-main">
+    <section class="section container" id="projects">
+      <div class="section-heading reveal">
+        <p class="section-kicker">Projects</p>
+        <h1>From hardware systems to hackathon builds.</h1>
+      </div>
+
+      <div class="project-grid">
+        <article class="project-card featured reveal">
+          <figure class="project-visual capstone-visual"><img src="assets/fpga-capstone.jpg" alt="Nexys A7 FPGA and connected hardware inside the senior capstone prototype enclosure" /><figcaption>Senior capstone hardware prototype</figcaption></figure>
+          <div class="project-content">
+            <div class="project-topline"><span>Senior Design</span><span>2025–2026</span></div>
+            <h3>FPGA Real-Time Edge Detection & License Plate Recognition</h3>
+            <p>
+              Real-time camera pipeline on a Nexys A7 FPGA using grayscale conversion, Sobel edge detection, ROI selection, BRAM-conscious streaming, UART, I²C, VGA, and host-side ML/OCR processing.
+            </p>
+            <div class="metric-row">
+              <span><strong>640×480</strong> camera</span>
+              <span><strong>30 fps</strong> target</span>
+              <span><strong>93%+</strong> edge accuracy</span>
+              <span><strong>&lt;30%</strong> BRAM</span>
+            </div>
+            <div class="tech-list"><span>Verilog</span><span>Vivado</span><span>OV7670</span><span>Sobel</span><span>UART</span><span>I²C</span><span>Python</span><span>YOLOv8</span></div>
+            <a class="text-link" href="https://github.com/takeru-hiura/senior_design_code" target="_blank" rel="noreferrer">View project on GitHub ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual image-visual">
+            <img src="assets/servo-project.png" alt="TM4C123 servo motor smart lock prototype with keypad, breadboard, and servo motor" />
+          </div>
+          <div class="project-content">
+            <div class="project-topline"><span>Embedded Systems</span><span>2025</span></div>
+            <h3>TM4C123 Servo-Based Smart Lock Prototype</h3>
+            <p>
+              Built a microcontroller-based smart lock that uses keypad authentication and servo motor actuation to unlock on valid input. The prototype integrates a TM4C123 LaunchPad, keypad interface, LEDs, sensing, UART feedback, and a Moore FSM for reliable control logic.
+            </p>
+            <div class="tech-list"><span>Embedded C</span><span>TM4C123</span><span>GPIO</span><span>PWM</span><span>Keypad</span><span>UART</span><span>FSM</span><span>Servo Motor</span></div>
+            <a class="text-link" href="https://github.com/takeru-hiura/num_lock_prototype" target="_blank" rel="noreferrer">View project on GitHub ↗</a>
+          </div>
+        </article>
+
+        <article class="project-card reveal">
+          <div class="project-visual data-visual" aria-hidden="true">
+            <svg viewBox="0 0 520 230">
+              <path d="M20 185 C95 165 115 70 180 92 S280 180 325 110 S410 40 500 58" fill="none" />
+              <circle cx="20" cy="185" r="6"/><circle cx="180" cy="92" r="6"/><circle cx="325" cy="110" r="6"/><circle cx="500" cy="58" r="6"/>
+            </svg>
+          </div>
+          <div class="project-content">
+            <div class="project-topline"><span>Research Computing</span><span>2025</span></div>
+            <h3>Climate Model Data Analysis</h3>
+            <p>
+              Scientific-computing workflow for studying Middle Miocene dust emissions from CESM outputs, including multidimensional array processing, parameter analysis, and publication-quality visualization.
+            </p>
+            <div class="tech-list"><span>Python</span><span>xarray</span><span>NumPy</span><span>Matplotlib</span><span>Cartopy</span><span>CESM</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="project-subheading reveal">
+        <p class="section-kicker">Hackathon projects</p>
+        <h3>Ideas built with a team.</h3>
+      </div>
+      <div class="hackathon-grid">
+        <article class="hackathon-card reveal">
+          <div class="project-topline"><span>Lehigh Valley Collegiate Hackathon</span><span>2025</span></div>
+          <h3>Fresh from the Fridge</h3>
+          <p>An OpenMV camera and AWS services track groceries from fridge video and receipts, then suggest recipes from a collection of 40,000+ dishes. Winner of a Best Use of AI Resources award.</p>
+          <div class="tech-list"><span>OpenMV</span><span>Python</span><span>AWS Lambda</span><span>Rekognition</span><span>Bedrock</span></div>
+          <div class="project-links">
+            <a class="text-link" href="https://devpost.com/software/fresh-from-the-fridge" target="_blank" rel="noopener noreferrer">Devpost ↗</a>
+            <a class="text-link" href="https://github.com/arrowarcher1/Fresh-from-the-Fridge" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </article>
+        <article class="hackathon-card reveal">
+          <div class="project-topline"><span>Lehigh Hack for Justice</span><span>2025</span></div>
+          <h3>Truth Trail</h3>
+          <p>A chain-of-custody platform that stores evidence in Google Cloud, tags images with Gemini, and verifies their integrity using hashes recorded on SKALE.</p>
+          <div class="tech-list"><span>Google Cloud</span><span>Gemini</span><span>SKALE</span><span>TypeScript</span></div>
+          <div class="project-links">
+            <a class="text-link" href="https://devpost.com/software/truth-trail" target="_blank" rel="noopener noreferrer">Devpost ↗</a>
+          </div>
+        </article>
+        <article class="hackathon-card reveal">
+          <div class="project-topline"><span>Lehigh Valley Collegiate Hackathon</span><span>2024</span></div>
+          <h3>ProfPair</h3>
+          <p>A professor compatibility prototype that combines course ratings and student input with AWS sentiment analysis. Winner of a Best Use of AI Resources award.</p>
+          <div class="tech-list"><span>Python</span><span>AWS Comprehend</span><span>S3</span><span>HTML</span></div>
+          <div class="project-links">
+            <a class="text-link" href="https://devpost.com/software/profpair" target="_blank" rel="noopener noreferrer">Devpost ↗</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <span>© Takeru Hiura</span>
+      <div><a href="https://github.com/takeru-hiura" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/takeru-hiura" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
