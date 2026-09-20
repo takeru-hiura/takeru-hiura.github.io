@@ -11,27 +11,33 @@ nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => 
   menuButton?.setAttribute('aria-expanded', 'false');
   menuButton?.setAttribute('aria-label', 'Open menu');
 }));
-const tabs = [...document.querySelectorAll('[role="tab"]')];
-function activateTab(tab, focus = false) {
-  tabs.forEach(item => {
-    const selected = item === tab;
-    item.setAttribute('aria-selected', String(selected));
-    item.tabIndex = selected ? 0 : -1;
-    document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
-  });
-  if (focus) tab.focus();
-}
-tabs.forEach((tab, index) => {
-  tab.addEventListener('click', () => activateTab(tab));
-  tab.addEventListener('keydown', event => {
-    let next = index;
-    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
-    else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
-    else if (event.key === 'Home') next = 0;
-    else if (event.key === 'End') next = tabs.length - 1;
-    else return;
-    event.preventDefault();
-    activateTab(tabs[next], true);
-  });
-});
 document.getElementById('year').textContent = new Date().getFullYear();
+
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
+contactForm?.addEventListener('submit', async event => {
+  event.preventDefault();
+  const submitBtn = contactForm.querySelector('button[type="submit"]');
+  submitBtn.disabled = true;
+  formStatus.textContent = 'Sending...';
+  formStatus.className = 'form-status';
+  try {
+    const response = await fetch(contactForm.action, {
+      method: 'POST',
+      body: new FormData(contactForm),
+      headers: { Accept: 'application/json' }
+    });
+    if (response.ok) {
+      formStatus.textContent = 'Message sent. Thanks for reaching out.';
+      formStatus.classList.add('form-status-success');
+      contactForm.reset();
+    } else {
+      throw new Error('Request failed');
+    }
+  } catch (err) {
+    formStatus.textContent = 'Something went wrong. Please email me directly instead.';
+    formStatus.classList.add('form-status-error');
+  } finally {
+    submitBtn.disabled = false;
+  }
+});
