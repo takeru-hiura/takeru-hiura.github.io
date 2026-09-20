@@ -1,30 +1,37 @@
-const header = document.querySelector('.site-header');
-const toggle = document.querySelector('.nav-toggle');
-const nav = document.querySelector('.nav-links');
-
-window.addEventListener('scroll', () => {
-  header.classList.toggle('scrolled', window.scrollY > 16);
+const menuButton = document.querySelector('.menu-toggle');
+const nav = document.querySelector('.site-nav');
+menuButton?.addEventListener('click', () => {
+  const expanded = menuButton.getAttribute('aria-expanded') === 'true';
+  menuButton.setAttribute('aria-expanded', String(!expanded));
+  menuButton.setAttribute('aria-label', expanded ? 'Open menu' : 'Close menu');
+  nav.classList.toggle('open', !expanded);
 });
-
-toggle?.addEventListener('click', () => {
-  const open = nav.classList.toggle('open');
-  toggle.setAttribute('aria-expanded', String(open));
-});
-
-document.querySelectorAll('.nav-links a').forEach(link => {
-  link.addEventListener('click', () => {
-    nav.classList.remove('open');
-    toggle?.setAttribute('aria-expanded', 'false');
+nav?.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+  nav.classList.remove('open');
+  menuButton?.setAttribute('aria-expanded', 'false');
+  menuButton?.setAttribute('aria-label', 'Open menu');
+}));
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+function activateTab(tab, focus = false) {
+  tabs.forEach(item => {
+    const selected = item === tab;
+    item.setAttribute('aria-selected', String(selected));
+    item.tabIndex = selected ? 0 : -1;
+    document.getElementById(item.getAttribute('aria-controls')).hidden = !selected;
+  });
+  if (focus) tab.focus();
+}
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateTab(tab));
+  tab.addEventListener('keydown', event => {
+    let next = index;
+    if (event.key === 'ArrowRight' || event.key === 'ArrowDown') next = (index + 1) % tabs.length;
+    else if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') next = (index - 1 + tabs.length) % tabs.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = tabs.length - 1;
+    else return;
+    event.preventDefault();
+    activateTab(tabs[next], true);
   });
 });
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.12 });
-
-document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+document.getElementById('year').textContent = new Date().getFullYear();

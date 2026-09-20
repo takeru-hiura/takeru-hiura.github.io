@@ -1,0 +1,10 @@
+{
+  "description": "Showcase your work with a clean, minimal personal portfolio site featuring a hero section, project gallery, and easy contact options for potential clients.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}

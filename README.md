@@ -1,24 +1,20 @@
-# Takeru Hiura — Portfolio Website
+# Takeru Hiura — Portfolio
 
-A lightweight, dependency-free portfolio designed for GitHub Pages.
+A static, single-page portfolio designed for GitHub Pages. The layout adapts the supplied `Personal Portfolio Site` template with Takeru's resume content and real photos of Takeru and his projects.
 
 ## Files
-- `index.html` — content and structure
-- `style.css` — responsive design and animations
-- `script.js` — mobile navigation and scroll-reveal effects
-- `assets/favicon.svg` — site icon
 
-## Publish free with GitHub Pages
-1. Create a public GitHub repository named `takeru-hiura.github.io`.
-2. Upload the contents of this folder to the repository root.
-3. Commit/push to the `main` branch.
-4. In GitHub, open **Settings → Pages**.
-5. Under **Build and deployment**, choose **Deploy from a branch**.
-6. Select `main` and `/ (root)`.
-7. Your site will be available at `https://takeru-hiura.github.io` after GitHub publishes it.
+- `index.html` — portfolio content and sections
+- `style.css` — responsive design
+- `script.js` — mobile navigation and accessible experience tabs
+- `assets/*-web.jpg` — optimized images used by the page
+- `Takeru_Hiura_Resume.pdf` — downloadable resume
+- `about.html`, `experience.html`, `projects.html`, `education.html`, `resume.html` — redirects for existing links
 
-## Customize later
-- Add a resume file and a Resume button.
-- Add real project photos/screenshots in `assets/`.
-- Update experience bullets as roles change.
-- Add a custom domain if desired; GitHub Pages hosting can remain free.
+## Preview
+
+Open `index.html` in a browser, or serve the repository root with any static server. No build step is required. The original template remains in `Personal Portfolio Site/` for reference.
+
+## Publish
+
+GitHub Pages can deploy the repository root from the default branch. Because links and assets use relative paths, the site also works as a project page under a subpath.
