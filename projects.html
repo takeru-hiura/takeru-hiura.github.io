@@ -21,7 +21,7 @@
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="experience.html">Experience</a>
-        <a href="projects.html" aria-current="page">Projects</a>
+        <a href="projects.html" aria-current="page" aria-current="page">Projects</a>
         <a href="education.html">Education & Awards</a>
       </div>
     </nav>
@@ -35,6 +35,7 @@
 
       <div class="project-grid">
         <article class="project-card featured reveal">
+          <div class="project-media"><img src="assets/fpga-capstone.jpg" alt="FPGA license plate image processing project setup" loading="lazy"></div>
           <figure class="project-visual capstone-visual"><img src="assets/fpga-capstone.jpg" alt="Nexys A7 FPGA and connected hardware inside the senior capstone prototype enclosure" /><figcaption>Senior capstone hardware prototype</figcaption></figure>
           <div class="project-content">
             <div class="project-topline"><span>Senior Design</span><span>2025–2026</span></div>
@@ -129,6 +130,25 @@
       <div><a href="https://github.com/takeru-hiura" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/takeru-hiura" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
 </body>
 </html>

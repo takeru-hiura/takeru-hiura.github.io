@@ -20,7 +20,7 @@
       <div class="nav-links" id="primary-links">
         <a href="index.html">Home</a>
         <a href="about.html">About</a>
-        <a href="experience.html" aria-current="page">Experience</a>
+        <a href="experience.html" aria-current="page" aria-current="page">Experience</a>
         <a href="projects.html">Projects</a>
         <a href="education.html">Education & Awards</a>
       </div>
@@ -144,6 +144,25 @@
       <div><a href="https://github.com/takeru-hiura" target="_blank" rel="noopener noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/takeru-hiura" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
     </div>
   </footer>
-  <script src="script.js"></script>
+  <script>
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+      navToggle.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('active');
+    });
+
+    navLinks.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        navToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
 </body>
 </html>
